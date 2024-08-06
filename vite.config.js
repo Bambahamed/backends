@@ -1,0 +1,11 @@
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react()],
+  define: {
+    global: "globalThis", // Utilisation de globalThis comme remplacement pour `global`
+  },
+  // Si tu utilises des modules ou des fonctionnalités spécifiques, configure-les ici
+});
