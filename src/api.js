@@ -3,7 +3,6 @@ import { logout } from "./shared/utils/auth";
 
 const apiClient = axios.create({
   baseURL: "https://backend-vxxw.onrender.com/api",
-  timeout: 1000,
 });
 
 apiClient.interceptors.request.use(
@@ -25,7 +24,10 @@ apiClient.interceptors.request.use(
 
 export const login = async (data) => {
   try {
-    return await apiClient.post("/auth/login", data);
+    return await apiClient.post(
+      "https://backend-vxxw.onrender.com/api/auth/login",
+      data
+    );
   } catch (exception) {
     return {
       error: true,
@@ -36,7 +38,10 @@ export const login = async (data) => {
 
 export const register = async (data) => {
   try {
-    const response = await apiClient.post("/auth/register", data);
+    const response = await apiClient.post(
+      "https://backend-vxxw.onrender.com/api/auth/register",
+      data
+    );
     return response;
   } catch (exception) {
     return {
@@ -50,7 +55,10 @@ export const register = async (data) => {
 
 export const sendFriendInvitation = async (data) => {
   try {
-    return await apiClient.post("/friend-invitation/invite", data);
+    return await apiClient.post(
+      "https://backend-vxxw.onrender.com/api/friend-invitation/invite",
+      data
+    );
   } catch (exception) {
     checkResponseCode(exception);
     return {
@@ -62,7 +70,10 @@ export const sendFriendInvitation = async (data) => {
 
 export const acceptFriendInvitation = async (data) => {
   try {
-    return await apiClient.post("/friend-invitation/accept", data);
+    return await apiClient.post(
+      "https://backend-vxxw.onrender.com/api/friend-invitation/accept",
+      data
+    );
   } catch (exception) {
     checkResponseCode(exception);
     return {
@@ -74,7 +85,10 @@ export const acceptFriendInvitation = async (data) => {
 
 export const rejectFriendInvitation = async (data) => {
   try {
-    return await apiClient.post("/friend-invitation/reject", data);
+    return await apiClient.post(
+      "https://backend-vxxw.onrender.com/api/friend-invitation/reject",
+      data
+    );
   } catch (exception) {
     checkResponseCode(exception);
     return {
